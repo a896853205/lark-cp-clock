@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^16.4.8"
+    "@types/node": "^16.4.8",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0"
   }
 }

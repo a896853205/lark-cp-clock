@@ -1,4 +1,7 @@
 import { Clock } from './src/Clock';
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const clockAlarm = new ClockAlarm(true, Number(new Date('2021/7/31 8:00')), 3600000, 0, true);
 const clock = new Clock(clockAlarm);
