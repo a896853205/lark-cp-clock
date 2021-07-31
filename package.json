@@ -2,5 +2,8 @@
   "name": "lark-cp-clock",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^16.4.8"
+  }
 }

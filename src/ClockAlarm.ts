@@ -10,8 +10,7 @@ class ClockAlarm {
   isWorkDay: boolean = false;
 
   /**
-   * @param circulateTimes
-   * @param message
+   * @param isCirculate
    * @param alarmStartTime
    * @param timeInterval
    * @param ranTimes
@@ -19,14 +18,12 @@ class ClockAlarm {
    */
   constructor(
     isCirculate?: boolean,
-    message?: string,
     alarmStartTime?: number,
     timeInterval?: number,
     ranTimes?: number,
     isWorkDay?: boolean
   ) {
     this.isCirculate = isCirculate ?? true;
-    this.message = message ?? '';
     this.alarmStartTime = alarmStartTime ?? Number(new Date());
     this.timeInterval = timeInterval ?? 1;
     this.ranTimes = ranTimes ?? 0;

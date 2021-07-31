@@ -2,7 +2,7 @@ import {
   isFunction
 } from '../util/index';
 
-class Clock {
+export class Clock {
   clockAlarm: ClockAlarm = new ClockAlarm();
   asyncAlarm?: Promise<any>;
 
@@ -10,17 +10,17 @@ class Clock {
     this.setClockAlarm(clockAlarm);
   }
 
-  private getNextExpectTime() {}
+  public getNextExpectTime() {}
 
-  private getClockAlarm() {
+  public getClockAlarm() {
     return this.clockAlarm;
   }
 
-  private setClockAlarm(clockAlarm: ClockAlarm) {
+  public setClockAlarm(clockAlarm: ClockAlarm) {
     this.clockAlarm = clockAlarm;
   }
 
-  private setAlarmEvent(event: Promise<any> | Function) {
+  public setAlarmEvent(event: Promise<any> | Function) {
     if (isFunction(event)) {
       this.asyncAlarm = Promise.resolve(event);
       return;
@@ -32,7 +32,7 @@ class Clock {
     }
   }
 
-  private applyAlarmCallback (callback: Function) {
-
+  public async alarm (callback?: () => {}) {
+    await this.asyncAlarm?.then(callback);
   }
 }
