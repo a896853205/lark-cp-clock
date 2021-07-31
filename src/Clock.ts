@@ -1,7 +1,10 @@
+import {
+  isFunction
+} from '../util/index';
+
 class Clock {
   clockAlarm: ClockAlarm = new ClockAlarm();
   asyncAlarm?: Promise<any>;
-  syncAlarm?: Function;
 
   constructor(clockAlarm: ClockAlarm) {
     this.setClockAlarm(clockAlarm);
@@ -17,5 +20,19 @@ class Clock {
     this.clockAlarm = clockAlarm;
   }
 
-  private setAlarmCallback(callback: Promise<any> | Function) {}
+  private setAlarmEvent(event: Promise<any> | Function) {
+    if (isFunction(event)) {
+      this.asyncAlarm = Promise.resolve(event);
+      return;
+    }
+    
+    if (event instanceof Promise) {
+      this.asyncAlarm = event;
+      return;
+    }
+  }
+
+  private applyAlarmCallback (callback: Function) {
+
+  }
 }
